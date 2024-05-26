@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACKOFFICE ADMIN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/sass.css">
+    <link rel="stylesheet" href="assets/css/layets.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <style>
+        /*<!---------- estilo do chart -->*/
+          #chart {
+        max-width: 650px;
+        margin: 35px auto;
+      }
+        
+      </style>
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      
+  
+      <script>
+        // Replace Math.random() with a pseudo-random number generator to get reproducible results in e2e tests
+        // Based on https://gist.github.com/blixt/f17b47c62508be59987b
+        var _seed = 42;
+        Math.random = function() {
+          _seed = _seed * 16807 % 2147483647;
+          return (_seed - 1) / 2147483646;
+        };
+      </script>
+
+
+</head>
+<body>
+    <div class="main-wrapper">
+        <!---- navbar ------>
+        <div class="header-container fixed-top">
+            <header class="header navbar navbar-expand-sm expand-header">
+                <div class="header-left d-flex">
+                    <div class="logo">
+                        GoHelp
+                    </div>
+                    <a href="#" class="sidebarCollapse" id="toggleSidebar" data-placement="bottom">
+                        <span class="fas fa-bars"></span>
+                    </a>
+                </div>
+                <ul class="navbar-nav flex-row ml-auto">
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="#" class="nav-link user show" id="Notify" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/img/icons8-notification.svg" alt="Notification Icon" class="icon">
+                            <p class="count">5</p>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Notify">
+                            <li class="dropdown-item">
+                                <a href="#" class="message-item">
+                                    <img src="assets/img/noted.svg" alt="User Note" class="user-note">
+                                    <div class="note-info-desmis">
+                                        <div class="user-notify-info">
+                                            <p class="note-name">Novo Pedido de Iniciativa</p>
+                                            <p class="note-time">20 min ago</p>
+                                        </div>
+                                        <a href="#" class="status-link"><span class="fas fa-times"></span></a>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="#" class="nav-link user" id="Settings" data-bs-toggle="dropdown">
+                            <img src="assets/img/settings.svg" alt="Settings Icon" class="icon">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Settings">
+                            <li><a class="dropdown-item" href="#">Configuração 1</a></li>
+                            <li><a class="dropdown-item" href="#">Configuração 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="#" class="nav-link user" id="Profile" data-bs-toggle="dropdown">
+                            <img src="assets/img/avatar.svg" alt="User Avatar" class="icon">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Profile">
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="#" class="nav-link user" id="Logout" data-bs-toggle="dropdown">
+                            <img src="assets/img/log-out.svg" alt="Logout Icon" class="icon">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Logout">
+                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <!-------- navbar END ------>
+
+
+
+<!-------------------sIDEBAR sataryt-------->
+        <div class="left-menu">
+            <div class="menubar-content">
+                <nav class="animated bounceInDown">
+                    <ul id="sidebar">
+                        <li class="active"> <a href="" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li> <a href="#" class=""><i class="fa fa-address-card" aria-hidden="true"></i>Iniciativas</a></li>
+                        <li> <a href="#" class=""><i class="fa fa-user-circle" aria-hidden="true"></i>Utilizadores</a></li>
+                        <li> <a href="#" class=""><i class="fa fa-briefcase" aria-hidden="true"></i>Materiais</a></li>
+                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+
+
+                       
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+<!-------------SIDEBAR END---------------->
+
+<!-------------content wraper------------>
+<div class="content-wraper">
+    <section class="dashboard-top-sec">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="bg-white top-chart-ear">
+                        <div class="row">
+                            <div class="col-sm-4 my-2 pe-0">
+                                <div class="last-month">
+                                    <h5>Dashboard</h5>
+                                    <p>Overview Ultimo Mes</p>
+
+                                    <div class="earn">
+                                        <h2>$3367.98</h2>
+                                        <p>Total de Utilizadores</p>
+                                    </div>
+                                    <div class="done mb-3">
+                                        <h2>95</h2>
+                                        <p>Iniciativas Realizadas neste mes</p>
+                                    </div>
+                                    <a href="" class="di-tn green-gradient">Voluntarios Mes Passado</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 my-2 ps-0">
+                                <div class="classic-tabs">
+
+
+                                          <div class="tab-content" id="pills-tabContent">
+
+                                                <!----------grafico-->
+                                            <div id="chart"></div>
+
+                                            <script>
+                                              
+                                                var options = {
+                                                  series: [{
+                                                  name: 'Semana',
+                                                  data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+                                                }, {
+                                                  name: 'Mes',
+                                                  data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+                                                }, {
+                                                  name: 'Dia',
+                                                  data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+                                                }],
+                                                  chart: {
+                                                  type: 'bar',
+                                                  height: 350
+                                                },
+                                                plotOptions: {
+                                                  bar: {
+                                                    horizontal: false,
+                                                    columnWidth: '55%',
+                                                    endingShape: 'rounded'
+                                                  },
+                                                },
+                                                dataLabels: {
+                                                  enabled: false
+                                                },
+                                                stroke: {
+                                                  show: true,
+                                                  width: 2,
+                                                  colors: ['transparent']
+                                                },
+                                                xaxis: {
+                                                  categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+                                                },
+                                                yaxis: {
+                                                  title: {
+                                                    text: '$ (thousands)'
+                                                  }
+                                                },
+                                                fill: {
+                                                  opacity: 1
+                                                },
+                                                tooltip: {
+                                                  y: {
+                                                    formatter: function (val) {
+                                                      return "$ " + val + " thousands"
+                                                    }
+                                                  }
+                                                }
+                                                };
+                                        
+                                                var chart = new ApexCharts(document.querySelector("#chart"), options);
+                                                chart.render();
+                                              
+                                              
+                                            </script>
+                                           
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wre-sec">
+                                <div class="row">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+
+    </div>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+ 
+</body>
+</html>

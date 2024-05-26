@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Perfil - Colaborador</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+  
+
+    <!-- Favicon -->
+        
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script type="module">
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
+
+        const firebaseConfig = {
+  apiKey: "AIzaSyD5Rj0nJFDf-CnxV-ZuG1j1URRrO6iMVLc",
+  authDomain: "login-e7f54.firebaseapp.com",
+  projectId: "login-e7f54",
+  storageBucket: "login-e7f54.appspot.com",
+  messagingSenderId: "44551396299",
+  appId: "1:44551396299:web:43bab556502893052a744e"
+};
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        document.addEventListener("DOMContentLoaded", () => {
+          onAuthStateChanged(auth, (user) => {
+            const logoutBtn = document.getElementById("logout-btn");
+
+            if (user) {
+              if (logoutBtn) logoutBtn.style.display = "block";
+            } else {
+              // Redirect to login page if the user is not authenticated
+              window.location.href = "index.html";
+            }
+          });
+
+          const logoutBtn = document.getElementById("logout-btn");
+          if (logoutBtn) {
+            logoutBtn.addEventListener("click", () => {
+              signOut(auth).then(() => {
+                window.location.href = "index.html";
+              }).catch((error) => {
+                console.error("Error during sign-out:", error);
+              });
+            });
+          }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <img src="img/GOHELP.png" alt="GOHELP" class="me-0 float-left" >                 
+                  </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <a href="index.html" class="nav-item nav-link">Inicio</a>
+                        <a href="about.html" class="nav-item nav-link">Sobre</a>
+                        <a href="service.html" class="nav-item nav-link">Iniciativas</a>
+                        <a href="perfil.html" class="nav-item nav-link active">Perfil</a>
+                        <a href="booking.html" class="nav-item nav-link">Registar Iniciativa</a>
+                        <a href="contact.html" class="nav-item nav-link">Contacta-nos</a>
+                    </div>
+                    <div class="navbar-nav py-0">
+                        <button id="logout-btn" class="btn btn-primary logout-button" style="display: none;">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-xxl py-5 bg-dark hero-header mb-5">
+                <div class="container text-center my-5 pt-5 pb-4">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Perfil</h1>
+                    <nav aria-label="breadcrumb">
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Iniciativas a Participar</title>
+          <link rel="stylesheet" href="style.css">
+        </head>
+        
+        <div class="container">
+            <div class="content">
+                <div class="profile">
+                    <img class="img-fluid" src="img/JoseAraujo 2.png" alt="">
+                    <h2 style="font-size: 26px;">Nome</h2>
+                    <p id="nome">Nome</p>
+                    <input type="text" id="novoNome" style="display: none;">
+                    
+                    <h2 style="font-size: 26px;">Data de Nascimento</h2>
+                    <p id="dataNascimento">dd/mm/yy</p>
+                    <input type="text" id="novaDataNascimento" style="display: none;">
+                    
+                    <h2 style="font-size: 26px;">Telemóvel</h2>
+                    <p id="telemovel">xxx-xxx-xxx</p>
+                    <input type="text" id="novoTelemovel" style="display: none;">
+                    
+                    <h2 style="font-size: 26px;">Email</h2>
+                    <p id="email">info@example.com</p>
+                    <input type="text" id="novoEmail" style="display: none;">
+                    
+                    <h2 style="font-size: 26px;">Morada</h2>
+                    <p id="morada"></p>
+                    <input type="text" id="novaMorada" style="display: none;">
+                    
+                    <button onclick="editarPerfil()" style="background-color: #FEA116; color: #ffff;">EDITAR PERFIL</button>
+                    <button onclick="salvarDados()" style="background-color: #FEA116;color: #ffff;">SALVAR</button>
+                </div>
+            
+                <script>
+                    function editarPerfil() {
+                        var elementos = document.querySelectorAll('.profile p');
+                        elementos.forEach(function(elemento) {
+                            elemento.style.display = 'none';
+                        });
+                        var inputs = document.querySelectorAll('.profile input');
+                        inputs.forEach(function(input) {
+                            input.style.display = 'block';
+                            input.value = input.previousElementSibling.textContent;
+                        });
+                        document.querySelector('button:first-of-type').style.display = 'none';
+                        document.querySelector('button:last-of-type').style.display = 'block';
+                    }
+            
+                    function salvarDados() {
+                        var novoNome = document.getElementById('novoNome').value;
+                        var novaDataNascimento = document.getElementById('novaDataNascimento').value;
+                        var novoTelemovel = document.getElementById('novoTelemovel').value;
+                        var novoEmail = document.getElementById('novoEmail').value;
+                        var novaMorada = document.getElementById('novaMorada').value;
+            
+                        document.getElementById('nome').textContent = novoNome;
+                        document.getElementById('dataNascimento').textContent = novaDataNascimento;
+                        document.getElementById('telemovel').textContent = novoTelemovel;
+                        document.getElementById('email').textContent = novoEmail;
+                        document.getElementById('morada').textContent = novaMorada;
+                       
+                        console.log("Novo nome: " + novoNome);
+                        console.log("Nova data de nascimento: " + novaDataNascimento);
+                        console.log("Novo telemóvel: " + novoTelemovel);
+                        console.log("Novo email: " + novoEmail);
+                        console.log("Nova morada: " + novaMorada);
+            
+                        var elementos = document.querySelectorAll('.profile p');
+                        elementos.forEach(function(elemento) {
+                            elemento.style.display = 'block';
+                        });
+                        var inputs = document.querySelectorAll('.profile input');
+                        inputs.forEach(function(input) {
+                            input.style.display = 'none';
+                        });
+                        document.querySelector('button:first-of-type').style.display = 'block';
+                        document.querySelector('button:last-of-type').style.display = 'none';
+                    }
+                </script>
+        
+        <div class="initiatives">
+            <div class="wow fadeInUp" data-wow-delay="0.1s">
+                <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                    <li class="nav-item">
+                        <a id="iniciativasLink" class="d-flex align-items-center text-start mx-3 ms-0 pb-3" data-bs-toggle="pill" href="#tab-1" onclick="redirecionarParaPerfil()">
+                            <div class="ps-3">                                 
+                                <h6 class="mt-n1 mb-0">Iniciativas a Participar</h6>
+                            </div>
+                        </a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a id="minhasIniciativasLink" class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-2">
+                            <div class="ps-3">
+                                <h6 class="mt-n1 mb-0">Minhas Iniciativas</h6>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="container container-perfil">
+                    <div class="row" id="initiativesContainer">
+                        <!-- Iniciativas serão carregadas aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+        <script>
+            function redirecionarParaPerfil() {
+                window.location.href = 'perfil.html';
+            }
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    // Obtém o container onde as iniciativas serão carregadas
+    const initiativesContainer = document.getElementById('initiativesContainer');
+
+    // Recupera as iniciativas armazenadas na localStorage
+    const iniciativas = JSON.parse(localStorage.getItem('iniciativas')) || [];
+
+    // Função para criar o HTML de uma iniciativa
+    function criarHtmlIniciativa(iniciativa) {
+        return `
+            <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="service-item rounded pt-3 text-center" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <div class="p-6">
+                        <h5 style="color: #3C5837;">${iniciativa.titulo}</h5>
+                        <p>${iniciativa.data}</p>
+                        <p>${iniciativa.horaInicio}</p>
+                        <p>${iniciativa.estado}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Adiciona cada iniciativa ao container
+    iniciativas.forEach(function(iniciativa) {
+        const htmlIniciativa = criarHtmlIniciativa(iniciativa);
+        initiativesContainer.innerHTML += htmlIniciativa;
+    });
+});
+            </script>
+        
+        <!-- Footer Start -->
+        <div class="container-fluid bg-verde text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-primary text-start text-white fw-normal mb-4">Companhia</h4>
+                        <a class="btn btn-link" href="">Sobre nós</a>
+                        <a class="btn btn-link" href="">Contacta-nos</a>                        
+                        <a class="btn btn-link" href="">Politica de Privacidade</a>
+                        <a class="btn btn-link" href="">Termos & Condições</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-primary text-start text-white fw-normal mb-4">Contacto</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Residência Universitária de Azurém, Quarto 128, G2</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-primary text-start text-white fw-normal mb-4">Horário</h4>
+                        <h5 class="text-light fw-normal">Segunda - Domingo</h5>
+                        <p>08h - 20h</p>
+                        <h5 class="text-light fw-normal">Domingo</h5>
+                        <p>10h - 17h</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="section-title ff-primary text-start text-white fw-normal mb-4">Notícias</h4>                        
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-custom_verde py-2 position-absolute top-0 end-0 mt-2 me-2">Inscrever-se</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">	
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Página Inicial</a>
+                                <a href="">Cookies</a>
+                                <a href="">Ajuda</a>
+                                <a href="">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js" defer type="module"></script>
+    <script src="js/authGoogle.js" defer type="module"></script>
+</body>
+
+</html>

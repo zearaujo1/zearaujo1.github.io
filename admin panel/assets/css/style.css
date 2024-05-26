@@ -1,0 +1,77 @@
+.content-wraper{
+    margin-left: 240px;
+    margin-top: 65px;
+    transition: .3s;
+}
+.content-wraper.hide {
+    margin-left: 0;
+}
+.top-chart-ear {
+    border-radius: 5px;
+    padding-top: 15px;
+    box-shadow: -2px 3px 13px 0px #ddd6;
+}
+.last-month {
+    line-height: 20px;
+    text-align: center;
+}
+
+.last-month h5 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+p {}
+
+.last-month p {
+    font-size: 12px;
+    color: #777;
+}
+
+.earn {
+    margin: 12px;
+}
+
+.earn h2 {
+    font-size: 26px;
+    font-weight: 600;
+}
+.chart-nav.active {
+    background: #fff;
+    color: var(--second-color)!important;
+}
+
+.chart-nav {
+    color: var(--second-color);
+}
+
+.chart-nav:hover{
+    color: var(--main-color);
+}
+.chart-nav{
+    padding: 0px 15px;
+}
+
+.chart-header-tab{
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+.chart-nav.active {
+    background: #fff;
+    color: var(--second-color) !important;
+}
+
+.nav-pills .nav-link.active,.nav-pills .show>.nav-link {
+    color: var(--second-color) !important;
+    background: #fff;
+}
+a#pills-dia-tab {
+    font-weight: 600;
+}
+a#pills-semana-tab {
+    font-weight: 600;
+}
+a#pills-ano-tab {
+    font-weight: 600;
+}

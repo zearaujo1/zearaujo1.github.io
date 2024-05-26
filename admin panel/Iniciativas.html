@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BACKOFFICE ADMIN</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/sass.css" />
+    <link rel="stylesheet" href="assets/css/layets.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <!---- navbar ------>
+      <div class="header-container fixed-top">
+        <header class="header navbar navbar-expand-sm expand-header">
+          <div class="header-left d-flex">
+            <div class="logo">GoHelp</div>
+            <a
+              href="#"
+              class="sidebarCollapse"
+              id="toggleSidebar"
+              data-placement="bottom"
+            >
+              <span class="fas fa-bars"></span>
+            </a>
+          </div>
+          <ul class="navbar-nav flex-row ml-auto">
+            <li class="nav-item dropdown user-profile-dropdown">
+              <a
+                href="#"
+                class="nav-link user show"
+                id="Notify"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="assets/img/icons8-notification.svg"
+                  alt="Notification Icon"
+                  class="icon"
+                />
+                <p class="count">5</p>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="Notify">
+                <li class="dropdown-item">
+                  <a href="#" class="message-item">
+                    <img
+                      src="assets/img/noted.svg"
+                      alt="User Note"
+                      class="user-note"
+                    />
+                    <div class="note-info-desmis">
+                      <div class="user-notify-info">
+                        <p class="note-name">Novo Pedido de Iniciativa</p>
+                        <p class="note-time">20 min ago</p>
+                      </div>
+                      <a href="#" class="status-link"
+                        ><span class="fas fa-times"></span
+                      ></a>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown user-profile-dropdown">
+              <a
+                href="#"
+                class="nav-link user"
+                id="Settings"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  src="assets/img/settings.svg"
+                  alt="Settings Icon"
+                  class="icon"
+                />
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="Settings">
+                <li><a class="dropdown-item" href="#">Configuração 1</a></li>
+                <li><a class="dropdown-item" href="#">Configuração 2</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown user-profile-dropdown">
+              <a
+                href="#"
+                class="nav-link user"
+                id="Profile"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  src="assets/img/avatar.svg"
+                  alt="User Avatar"
+                  class="icon"
+                />
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="Profile">
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><a class="dropdown-item" href="#">Configurações</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown user-profile-dropdown">
+              <a
+                href="#"
+                class="nav-link user"
+                id="Logout"
+                data-bs-toggle="dropdown"
+              >
+                <img
+                  src="assets/img/log-out.svg"
+                  alt="Logout Icon"
+                  class="icon"
+                />
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="Logout">
+                <li><a class="dropdown-item" href="#">Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </header>
+      </div>
+      <!-------- navbar END ------>
+
+      <!-------------------sIDEBAR sataryt-------->
+      <div class="left-menu">
+        <div class="menubar-content">
+          <nav class="animated bounceInDown">
+            <ul id="sidebar">
+              <li>
+                <a href="index.html" class=""
+                  ><i class="fas fa-home"></i>Dashboard</a
+                >
+              </li>
+              <li class="active">
+                <a href="Iniciativas.html" class=""
+                  ><i class="fa fa-address-card" aria-hidden="true"></i
+                  >Iniciativas</a
+                >
+              </li>
+              <li>
+                <a href="#" class=""
+                  ><i class="fa fa-user-circle" aria-hidden="true"></i
+                  >Utilizadores</a
+                >
+              </li>
+              <li>
+                <a href="#" class=""
+                  ><i class="fa fa-briefcase" aria-hidden="true"></i
+                  >Materiais</a
+                >
+              </li>
+              <li>
+                <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="div">
+      <div class="div-2">
+        <div class="div-3">Nome da iniciativa</div>
+        <div class="div-4" style="margin-left: 0px">Data de realização</div>
+        <div class="div-5">Estado</div>
+      </div>
+    </div>
+    <div class="listar">
+      <div class="Listar1" id="initiativesContainer"></div>
+    </div>
+    
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Obtém o container onde as iniciativas serão carregadas
+        const initiativesContainer = document.getElementById(
+          "initiativesContainer"
+        );
+
+        // Recupera as iniciativas armazenadas na localStorage
+        const iniciativas =
+          JSON.parse(localStorage.getItem("iniciativas")) || [];
+
+        // Função para criar o HTML de uma iniciativa
+        function criarHtmlIniciativa(iniciativa) {
+          return `
+            
+                <div class="service-item rounded pt-3 text-center" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    
+                        <div class= "row">
+                            <div class= "col-md-3">
+                                <h5 style="color: #3C5837; font-size: 20px "> ${iniciativa.titulo}   </h5>
+                            </div>
+                            <div class= "col-md-3">
+                                <h5 style="color: #3C5837;font-size: 20px"> ${iniciativa.data}  </h5>
+                            </div>
+                            <div class= "col-md-3">
+                                <h5 style="color: #3C5837;font-size: 20px"> ${iniciativa.estado} </h5>
+                            </div>
+                            <div class= "col-md-3">
+                                <button class="button accept" onclick="acceptAction('${iniciativa.id}')">Aceitar</button>
+                                <button class="button reject" onclick="rejectAction('${iniciativa.id}')">Recusar</button>
+                            </div>
+
+                        </div>
+                    </div>
+            
+            `;
+        }
+
+        // Adiciona cada iniciativa ao container
+        iniciativas.forEach(function (iniciativa) {
+          const htmlIniciativa = criarHtmlIniciativa(iniciativa);
+          initiativesContainer.innerHTML += htmlIniciativa;
+        });
+      });
+
+      iniciativas.forEach(function (iniciativa) {
+        const htmlIniciativa = criarHtmlIniciativa(iniciativa);
+        initiativesContainer.innerHTML += htmlIniciativa;
+      });
+
+      function acceptAction(id) {
+        const iniciativas =
+          JSON.parse(localStorage.getItem("iniciativas")) || [];
+        const iniciativaAceita = iniciativas.find(
+          (iniciativa) => iniciativa.id === id
+        );
+        if (iniciativaAceita) {
+          iniciativaAceita.estado = "Aceita";
+          localStorage.setItem("iniciativas", JSON.stringify(iniciativas));
+          carregarIniciativas();
+        }
+      }
+
+      function rejectAction(id) {
+        const iniciativas =
+          JSON.parse(localStorage.getItem("iniciativas")) || [];
+        const iniciativaRecusada = iniciativas.find(
+          (iniciativa) => iniciativa.id === id
+        );
+        if (iniciativaRecusada) {
+          iniciativaRecusada.estado = "Recusada";
+          localStorage.setItem("iniciativas", JSON.stringify(iniciativas));
+          carregarIniciativas();
+        }
+      }
+
+      function carregarIniciativas() {
+        const initiativesContainer = document.getElementById(
+          "initiativesContainer"
+        );
+        initiativesContainer.innerHTML = "";
+        const iniciativas =
+          JSON.parse(localStorage.getItem("iniciativas")) || [];
+        iniciativas.forEach(function (iniciativa) {
+          const htmlIniciativa = criarHtmlIniciativa(iniciativa);
+          initiativesContainer.innerHTML += htmlIniciativa;
+        });
+      }
+    </script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
