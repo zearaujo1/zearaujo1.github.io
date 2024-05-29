@@ -45,9 +45,8 @@
 
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <img src="img/GOHELP.png" alt="GOHELP" class="me-0 float-left">  <h1 class="text-primary m-0 float: none">GOHELP</h1> 
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                <a href="" class="navbar-brand p-0 d-flex align-items-center"> 
+                  <img src="img/GOHELP.png" alt="GOHELP" class="me-2"> <h1 class="text-primary m-0">GOHELP</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -118,7 +117,7 @@
                         </li>
                     </ul>                    
                 </div>
-                <div class="row g-4 justify-content-center">
+                <div class="row g-4 justify-content-center" id="acceptedInitiativesContainer">
                     <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <a href="hidroginastica.html" class="service-item-link" data-categoria="hidroginastica">
                             <div class="service-item rounded pt-3 text-center" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
@@ -227,6 +226,43 @@
                             </div>
                         </a>
                     </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            // Obtém o container onde as iniciativas aceitas serão carregadas
+                            const acceptedInitiativesContainer = document.getElementById('acceptedInitiativesContainer');
+                
+                            // Recupera as iniciativas armazenadas na localStorage
+                            const iniciativas = JSON.parse(localStorage.getItem('iniciativas')) || [];
+                
+                            // Função para criar o HTML de uma iniciativa
+                            function criarHtmlIniciativa(iniciativa) {
+                               return `
+                                <div class="col-lg-4 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <a href="NovasIniciativas.html" class="service-item-link">
+                                    <div class="service-item rounded pt-3 text-center shadow-sm">
+                                        <div class="p-3">
+                                            <img src="img/default.jpg" alt="${iniciativa.titulo}" class="img-fluid mb-4" />
+                                            <h5 style="color: #3C5837;">${iniciativa.titulo}</h5>
+                                            <p>${iniciativa.data}</p>
+                                            <p>${iniciativa.horaInicio}</p>
+                                            <p>${iniciativa.estado}</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                                `;
+                            }
+                
+                            // Filtra e adiciona as iniciativas aceitas ao container
+                            const iniciativasAceite = iniciativas.filter(iniciativa => iniciativa.estado === 'Aceita');
+                            if (iniciativasAceite.length > 0) {
+                                iniciativasAceite.forEach(function(iniciativa) {
+                                    const htmlIniciativaAceita = criarHtmlIniciativa(iniciativa);
+                                    acceptedInitiativesContainer.innerHTML += htmlIniciativaAceita;
+                                });
+                            }
+                        });
+                    </script>
                 </div>
                 
                 </div>
@@ -268,7 +304,7 @@
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-primary text-start text-white fw-normal mb-4">Notícias</h4>                        
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="O seu email">
                             <button type="button" class="btn btn-custom_verde py-2 position-absolute top-0 end-0 mt-2 me-2">Inscrever-se</button>
                         </div>
                     </div>

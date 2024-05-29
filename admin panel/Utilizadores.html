@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACKOFFICE ADMIN</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/sass.css">
+    <link rel="stylesheet" href="assets/css/layets.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <style>
+        .user-table {
+            width: 90%; /* Reduzir a largura total da tabela */
+            margin: 20px auto; /* Centralizar a tabela */
+            border-collapse: collapse;
+            margin-top: 5%;
+        }
+        .user-table th, .user-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .user-table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        .user-table th:nth-child(1), .user-table td:nth-child(1) {
+            width: 30%;
+        }
+        .user-table th:nth-child(2), .user-table td:nth-child(2) {
+            width: 50%;
+        }
+        .user-table th:nth-child(3), .user-table td:nth-child(3) {
+            width: 20%;
+        }
+    </style>
+    <script type="module">
+        import { adicionarUsers } from '/localstorage/localstorage.js';
+        // Torna a função disponível no escopo global
+        window.adicionarUsers = adicionarUsers;
+    </script>
+</head>
+<body>
+    <div class="main-wrapper">
+        <!---- navbar ------>
+        <div class="header-container fixed-top">
+            <header class="header navbar navbar-expand-sm expand-header">
+                <div class="header-left d-flex">
+                    <div class="logo">
+                        GoHelp
+                    </div>
+                    <a href="#" class="sidebarCollapse" id="toggleSidebar" data-placement="bottom">
+                        <span class="fas fa-bars"></span>
+                    </a>
+                </div>
+                <ul class="navbar-nav flex-row ml-auto">
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <button class="btn" id="adicionarUsers" onclick="adicionarUsers()">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <a href="#" class="nav-link user show" id="Notify" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="assets/img/icons8-notification.svg" alt="Notification Icon" class="icon">
+                            <p class="count">5</p>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Notify">
+                            <li class="dropdown-item">
+                                <a href="#" class="message-item">
+                                    <img src="assets/img/noted.svg" alt="User Note" class="user-note">
+                                    <div class="note-info-desmis">
+                                        <div class="user-notify-info">
+                                            <p class="note-name">Novo Pedido de Iniciativa</p>
+                                            <p class="note-time">20 min ago</p>
+                                        </div>
+                                        <a href="#" class="status-link"><span class="fas fa-times"></span></a>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="#" class="nav-link user" id="Settings" data-bs-toggle="dropdown">
+                            <img src="assets/img/settings.svg" alt="Settings Icon" class="icon">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Settings">
+                            <li><a class="dropdown-item" href="#">Configuração 1</a></li>
+                            <li><a class="dropdown-item" href="#">Configuração 2</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="#" class="nav-link user" id="Profile" data-bs-toggle="dropdown">
+                            <img src="assets/img/avatar.svg" alt="User Avatar" class="icon">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Profile">
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Configurações</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown user-profile-dropdown">
+                        <a href="#" class="nav-link user" id="Logout" data-bs-toggle="dropdown">
+                            <img src="assets/img/log-out.svg" alt="Logout Icon" class="icon">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="Logout">
+                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <!-------- navbar END ------>
+
+        <!-------------------sIDEBAR sataryt-------->
+        <div class="left-menu">
+            <div class="menubar-content">
+                <nav class="animated bounceInDown">
+                    <ul id="sidebar">
+                        <li><a href="index.html" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li><a href="Iniciativas.html" class=""><i class="fa fa-address-card" aria-hidden="true"></i>Iniciativas</a></li>
+                        <li class="active"><a href="Utilizadores.html" class=""><i class="fa fa-user-circle" aria-hidden="true"></i>Utilizadores</a></li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-------------SIDEBAR END---------------->
+
+        <!-------------content wraper------------>
+        
+        <div class="listar">
+            <div class="Listar1" id="usersListContainer">
+                <!-- User data will be inserted here -->
+            </div>
+        </div>
+
+        <script>
+            function listarUsuarios() {
+                var usersData = localStorage.getItem("users");
+                var usersListContainer = document.getElementById("usersListContainer");
+
+                if (usersData !== null) {
+                    var users = JSON.parse(usersData);
+
+                    var html = '<table class="user-table">';
+                    html += '<thead><tr><th>Nome</th><th>E-mail</th><th>Role</th></tr></thead>';
+                    html += '<tbody>';
+                    users.forEach(function(user) {
+                        html += '<tr>';
+                        html += '<td>' + user.name + '</td>';
+                        html += '<td>' + user.email + '</td>';
+                        html += '<td>' + user.rule + '</td>';
+                        html += '</tr>';
+                    });
+                    html += '</tbody>';
+                    html += '</table>';
+
+                    usersListContainer.innerHTML = html;
+                } else {
+                    usersListContainer.innerHTML = '<p>Nenhum utilizador encontrado.</p>';
+                }
+            }
+            document.addEventListener('DOMContentLoaded', listarUsuarios);
+        </script>
+    </div>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

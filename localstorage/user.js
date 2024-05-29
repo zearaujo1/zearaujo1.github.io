@@ -7,6 +7,7 @@ class User {
         this.rule = rule;
         this.iniciativas = [];
     }
+  
 }
 
 export { User };

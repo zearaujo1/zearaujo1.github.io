@@ -75,3 +75,53 @@ a#pills-semana-tab {
 a#pills-ano-tab {
     font-weight: 600;
 }
+
+/*===========STYLE BIG NUMBERS*/
+.bdr-cls {
+    border-right: 1px solid #dddddd6b;
+}
+
+.wre-sec {
+    overflow: hidden;
+    border-top: 1px solid #11010124;
+}
+
+.total-view {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+span.fa-regular.fa-heart {
+    align-items: center !important;
+    width: 20px !important;
+    display: flex !important;
+    border-radius: 100% !important;
+    padding: 3px !important;
+    line-height: 20px !important;
+    font-size: 16px !important;
+}
+span.fa-solid.fa-clock{
+    align-items: center !important;
+    
+    padding: 3px !important;
+    /* line-height: 20px !important; */
+    font-size: 16px !important;
+    margin: 10px;
+}
+span.fa-solid.fa-circle-check{
+    align-items: center !important;      
+    padding: 3px !important;  
+    /* line-height: 20px !important; */   
+    font-size: 16px !important;
+    margin: 10px;
+}
+
+span.fa-solid.fa-hand-holding-heart{
+    align-items: center !important;   
+padding: 3px !important;   
+/* line-height: 20px !important; */
+font-size: 16px !important;
+margin: 10px;
+}

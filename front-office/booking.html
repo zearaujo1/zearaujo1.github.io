@@ -87,8 +87,8 @@
 
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <img src="img/GOHELP.png" alt="GOHELP" class="me-0 float-left">  <h1 class="text-primary m-0 float: none">GOHELP</h1> 
+                <a href="" class="navbar-brand p-0 d-flex align-items-center"> 
+                    <img src="img/GOHELP.png" alt="GOHELP" class="me-2"> <h1 class="text-primary m-0">GOHELP</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -123,46 +123,45 @@
 
 
         <!-- Reservation Start -->
-        <div class="container-xxl py-0 px-0 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="row g-0">
-                <div class="col-md-6 d-flex align-items-center">
-                    <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
-                        <h5 class="section-title ff-secondary text-start text-end text-primary fw-normal">Regista a tua iniciativa</h5>
+        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+            <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                <div class="col-lg-10 col-md-12">
+                    <div class="bg-light p-5 rounded shadow wow fadeInUp" data-wow-delay="0.2s">
+                        <h5 class="section-title ff-secondary text-center text-primary fw-normal mb-4" style="font-size: 1.75rem;">Regista a tua iniciativa</h5>
                         <form id="initiativeForm">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="titulo" placeholder="Titulo da Iniciativa">
-                                        <label for="titulo">Titulo da Iniciativa</label>
+                                        <input type="text" class="form-control form-control-lg" id="titulo" placeholder="Titulo da Iniciativa" required>
+                                        <label for="titulo" style="font-size: 1.25rem;">Titulo da Iniciativa</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="time" class="form-control" id="startHour" required>
-                                        <label for="startHour">Hora de Início</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating date" id="date3" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                        <label for="datetime">Data do evento</label>
+                                        <input type="time" class="form-control form-control-lg" id="startHour" required>
+                                        <label for="startHour" style="font-size: 1.25rem;">Hora de Início</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <div class="duracao">
-                                            <label for="hora" id="duracao">Duração</label>
-                                            <input type="time" id="hora" name="hora">
-                                        </div>
+                                        <input type="date" class="form-control form-control-lg" id="datetime" placeholder="Data do evento" required>
+                                        <label for="datetime" style="font-size: 1.25rem;">Data do evento</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <label for="hora" id="duracao" class="me-3" style="font-size: 1.25rem;">Duração</label>
+                                        <input type="time" id="hora" name="hora" class="form-control form-control-lg w-auto" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Descrição</label>
+                                        <textarea class="form-control form-control-lg" placeholder="Descrição" id="message" style="height: 100px" required></textarea>
+                                        <label for="message" style="font-size: 1.25rem;">Descrição</label>
                                     </div>
                                 </div>
-                                <!-- <div class="upload-container">
+                                <!--
+                                <div class="upload-container">
                                     <label for="image-upload" class="image-label">
                                         <img src="img/imagem_adicionar.jpg" class="placeholder-image">
                                     </label>
@@ -171,9 +170,10 @@
                                         <span class="file-name">Nenhum arquivo escolhido</span>
                                     </div>
                                     <button class="save-button" type="button" onclick="saveImage()">Save</button>
-                                </div> -->
+                                </div>
+                                -->
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Registar Atividade</button>
+                                    <button class="btn btn-primary w-100 py-3" type="submit" style="font-size: 1.25rem;">Registar Atividade</button>
                                 </div>
                             </div>
                         </form>
@@ -236,7 +236,7 @@
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-primary text-start text-white fw-normal mb-4">Notícias</h4>                        
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="O seu email">
                             <button type="button" class="btn btn-custom_verde py-2 position-absolute top-0 end-0 mt-2 me-2">Inscrever-se</button>
                         </div>
                     </div>

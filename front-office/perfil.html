@@ -50,6 +50,7 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
+        const user = auth.currentUser;
 
         document.addEventListener("DOMContentLoaded", () => {
           onAuthStateChanged(auth, (user) => {
@@ -91,8 +92,8 @@
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <img src="img/GOHELP.png" alt="GOHELP" class="me-0 float-left" >                 
+                <a href="" class="navbar-brand p-0 d-flex align-items-center"> 
+                    <img src="img/GOHELP.png" alt="GOHELP" class="me-2"> <h1 class="text-primary m-0">GOHELP</h1>               
                   </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -134,77 +135,29 @@
         <div class="container">
             <div class="content">
                 <div class="profile">
-                    <img class="img-fluid" src="img/JoseAraujo 2.png" alt="">
-                    <h2 style="font-size: 26px;">Nome</h2>
-                    <p id="nome">Nome</p>
-                    <input type="text" id="novoNome" style="display: none;">
+                    <img class="img-fluid" id="profile-img" src="" alt="Profile Image">
+                    <h2 style="font-size: 30px;">Nome</h2>
+                    <p id="name"></p>
                     
-                    <h2 style="font-size: 26px;">Data de Nascimento</h2>
-                    <p id="dataNascimento">dd/mm/yy</p>
-                    <input type="text" id="novaDataNascimento" style="display: none;">
-                    
-                    <h2 style="font-size: 26px;">Telemóvel</h2>
-                    <p id="telemovel">xxx-xxx-xxx</p>
-                    <input type="text" id="novoTelemovel" style="display: none;">
-                    
-                    <h2 style="font-size: 26px;">Email</h2>
-                    <p id="email">info@example.com</p>
-                    <input type="text" id="novoEmail" style="display: none;">
-                    
-                    <h2 style="font-size: 26px;">Morada</h2>
-                    <p id="morada"></p>
-                    <input type="text" id="novaMorada" style="display: none;">
-                    
-                    <button onclick="editarPerfil()" style="background-color: #FEA116; color: #ffff;">EDITAR PERFIL</button>
-                    <button onclick="salvarDados()" style="background-color: #FEA116;color: #ffff;">SALVAR</button>
+                    <h2 style="font-size: 30px;">Email</h2>
+                    <p id="email"></p>
+        
+                    <h2 style="font-size: 30px;">Role</h2>
+                    <p id="rule"></p>
+
                 </div>
-            
-                <script>
-                    function editarPerfil() {
-                        var elementos = document.querySelectorAll('.profile p');
-                        elementos.forEach(function(elemento) {
-                            elemento.style.display = 'none';
-                        });
-                        var inputs = document.querySelectorAll('.profile input');
-                        inputs.forEach(function(input) {
-                            input.style.display = 'block';
-                            input.value = input.previousElementSibling.textContent;
-                        });
-                        document.querySelector('button:first-of-type').style.display = 'none';
-                        document.querySelector('button:last-of-type').style.display = 'block';
-                    }
-            
-                    function salvarDados() {
-                        var novoNome = document.getElementById('novoNome').value;
-                        var novaDataNascimento = document.getElementById('novaDataNascimento').value;
-                        var novoTelemovel = document.getElementById('novoTelemovel').value;
-                        var novoEmail = document.getElementById('novoEmail').value;
-                        var novaMorada = document.getElementById('novaMorada').value;
-            
-                        document.getElementById('nome').textContent = novoNome;
-                        document.getElementById('dataNascimento').textContent = novaDataNascimento;
-                        document.getElementById('telemovel').textContent = novoTelemovel;
-                        document.getElementById('email').textContent = novoEmail;
-                        document.getElementById('morada').textContent = novaMorada;
-                       
-                        console.log("Novo nome: " + novoNome);
-                        console.log("Nova data de nascimento: " + novaDataNascimento);
-                        console.log("Novo telemóvel: " + novoTelemovel);
-                        console.log("Novo email: " + novoEmail);
-                        console.log("Nova morada: " + novaMorada);
-            
-                        var elementos = document.querySelectorAll('.profile p');
-                        elementos.forEach(function(elemento) {
-                            elemento.style.display = 'block';
-                        });
-                        var inputs = document.querySelectorAll('.profile input');
-                        inputs.forEach(function(input) {
-                            input.style.display = 'none';
-                        });
-                        document.querySelector('button:first-of-type').style.display = 'block';
-                        document.querySelector('button:last-of-type').style.display = 'none';
-                    }
-                </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                
+                if(users.length > 0) {
+                    document.getElementById('profile-img').src = users[0].pictureURL;
+                    document.getElementById('name').textContent = users[0].name;
+                    document.getElementById('email').textContent = users[0].email;
+                    document.getElementById('rule').textContent = users[0].rule;
+                }
+            });
+        </script>
         
         <div class="initiatives">
             <div class="wow fadeInUp" data-wow-delay="0.1s">
@@ -367,7 +320,7 @@
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-primary text-start text-white fw-normal mb-4">Notícias</h4>                        
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="O seu email">
                             <button type="button" class="btn btn-custom_verde py-2 position-absolute top-0 end-0 mt-2 me-2">Inscrever-se</button>
                         </div>
                     </div>

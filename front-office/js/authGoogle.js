@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 import { User } from "/localStorage/user.js";
-import { addUser } from "/localStorage/localstorage.js";
+import { addUser, getUsers } from "/localStorage/localstorage.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD5Rj0nJFDf-CnxV-ZuG1j1URRrO6iMVLc",
@@ -46,10 +46,8 @@ document.addEventListener("DOMContentLoaded", function() {
           const credential = GoogleAuthProvider.credentialFromResult(result);
           const user = result.user;
           console.log(user);
-          setTimeout(() => {
-            console.log("Redirecting...");
-            window.location.href = "perfil.html";
-          }, 5000);
+          console.log("Redirecting...");
+          window.location.href = "perfil.html";
           saveUserInfo(user);
         }).catch((error) => {
           const errorCode = error.code;
@@ -80,14 +78,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function saveUserInfo(user){
   if(user){
-    const newUser = new User(
-      user.uid,
-      user.displayName,
-      user.email,
-      'user',
-      user.photoURL
-    );
-
-    addUser(newUser);
+    const userExists = checkUserExists(user);
+    if (!userExists) {
+      const newUser = new User(
+        user.uid,
+        user.displayName,
+        user.email,
+        'user',
+        user.photoURL
+      );
+      addUser(newUser);
+    }
   }
+}
+
+function checkUserExists(user) {
+  const users = getUsers();
+  const userExists = users.some(u => u.id === user.uid);
+  return userExists;
+}
+
+function loadUserProfileFromLocalStorage() {
+  const user = getUserInfoFromLocalStorage();
+  if (user) {
+    document.getElementById("nome").textContent = user.displayName;
+    document.getElementById("dataNascimento").textContent = user.birthDate;
+    document.getElementById("telemovel").textContent = user.phone;
+    document.getElementById("email").textContent = user.email;
+    document.getElementById("morada").textContent = user.address;
+  }
+}
+
+// Função para recuperar os dados do usuário do localStorage
+function getUserInfoFromLocalStorage() {
+  const userData = JSON.parse(localStorage.getItem("userData"));
+  return userData;
 }

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 
     <style>
-        /*<!---------- estilo do chart -->*/
+        
           #chart {
         max-width: 650px;
         margin: 35px auto;
@@ -106,17 +106,11 @@
             <div class="menubar-content">
                 <nav class="animated bounceInDown">
                     <ul id="sidebar">
-                        <li class="active"> <a href="" class=""><i class="fas fa-home"></i>Dashboard</a></li>
-                        <li> <a href="#" class=""><i class="fa fa-address-card" aria-hidden="true"></i>Iniciativas</a></li>
-                        <li> <a href="#" class=""><i class="fa fa-user-circle" aria-hidden="true"></i>Utilizadores</a></li>
-                        <li> <a href="#" class=""><i class="fa fa-briefcase" aria-hidden="true"></i>Materiais</a></li>
-                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
-                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
-                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
-                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
-                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
-                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
-                        <li> <a href="#" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li class="active"> <a href="index.html" class=""><i class="fas fa-home"></i>Dashboard</a></li>
+                        <li> <a href="Iniciativas.html" class=""><i class="fa fa-address-card" aria-hidden="true"></i>Iniciativas</a></li>
+                        <li> <a href="Utilizadores.html" class=""><i class="fa fa-user-circle" aria-hidden="true"></i>Utilizadores</a></li>
+                       
+                        
 
 
                        
@@ -141,13 +135,43 @@
                                     <p>Overview Ultimo Mes</p>
 
                                     <div class="earn">
-                                        <h2>$3367.98</h2>
+                                        <h2 id="usersCount"></h2>
                                         <p>Total de Utilizadores</p>
                                     </div>
-                                    <div class="done mb-3">
-                                        <h2>95</h2>
-                                        <p>Iniciativas Realizadas neste mes</p>
+                                    
+                                    <script>
+                                        var usersData = localStorage.getItem("users");
+                                        var usersCount = 0;
+                                    
+                                        if (usersData !== null) {
+                                            var users = JSON.parse(usersData);
+                                            
+                                            usersCount = Object.keys(users).length;
+                                        }
+                                    
+                                        document.getElementById("usersCount").textContent = usersCount;
+                                    </script>
+                                    <div class="earn">
+                                        <h2 id="iniciativasCount"></h2>
+                                        <p>Total de Iniciativas</p>
                                     </div>
+                                    
+                                    <script>
+                                        // Verifica se a local storage tem a chave "iniciativas" e obtém as iniciativas
+                                        var iniciativasData = localStorage.getItem("iniciativas");
+                                        var iniciativasCount = 0;
+                                    
+                                        if (iniciativasData !== null) {
+                                            // Converte os dados da local storage em um objeto JavaScript
+                                            var iniciativas = JSON.parse(iniciativasData);
+                                            
+                                            // Conta o número de iniciativas no objeto
+                                            iniciativasCount = Object.keys(iniciativas).length;
+                                        }
+                                    
+                                        // Atualiza o conteúdo da tag <h2> com o número de iniciativas
+                                        document.getElementById("iniciativasCount").textContent = iniciativasCount;
+                                    </script>
                                     <a href="" class="di-tn green-gradient">Voluntarios Mes Passado</a>
                                 </div>
                             </div>
@@ -157,7 +181,8 @@
 
                                           <div class="tab-content" id="pills-tabContent">
 
-                                                <!----------grafico-->
+                                                <!----------graficobarras-->
+                                            
                                             <div id="chart"></div>
 
                                             <script>
@@ -197,7 +222,7 @@
                                                 },
                                                 yaxis: {
                                                   title: {
-                                                    text: '$ (thousands)'
+                                                    text: 'participantes'
                                                   }
                                                 },
                                                 fill: {
@@ -206,7 +231,7 @@
                                                 tooltip: {
                                                   y: {
                                                     formatter: function (val) {
-                                                      return "$ " + val + " thousands"
+                                                      return "" + val + " participantes"
                                                     }
                                                   }
                                                 }
@@ -220,15 +245,237 @@
                                            
                                           </div>
                                     </div>
+                                
                                 </div>
                             </div>
+                            <!--------------BIG NUMBERS-------------->
                             <div class="wre-sec">
                                 <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-6 my-1 bdr-cls">
+                                        <div class="total-view">
+                                            <span class="fa-regular fa-heart"></span>
+                                            <div class="total-view-text">
+                                                <p class="name-text">
+                                                    Total Iniciativas
+                                                </p>
+                                                <h6 class="balance-text">
+                                                    <h2 id="iniciativasContador"></h2>
+                                                    
+                                                    <script>
+                                                        // Verifica se a local storage tem a chave "iniciativas" e obtém as iniciativas
+                                                        var iniciativasData = localStorage.getItem("iniciativas");
+                                                        var iniciativasContador = 0;
+                                                    
+                                                        if (iniciativasData !== null) {
+                                                            // Converte os dados da local storage em um objeto JavaScript
+                                                            var iniciativas = JSON.parse(iniciativasData);
+                                                            
+                                                            // Conta o número de iniciativas no objeto
+                                                            iniciativasContador = Object.keys(iniciativas).length;
+                                                        }
+                                                    
+                                                        // Atualiza o conteúdo da tag <h2> com o número de iniciativas
+                                                        document.getElementById("iniciativasContador").textContent = iniciativasContador;
+                                                    </script>
+
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-6 my-1 bdr-cls">
+                                        <div class="total-view">
+                                            <span class="fa-solid fa-clock"></span>
+                                            <div class="total-view-text">
+                                                <p class="name-text">
+                                                    Total Iniciativas Pendentes
+                                                </p>
+                                                <h6 class="balance-text">
+                                                    <h2 id="iniciativasContadorPendentes"></h2>
+
+                                                    <script>
+                                                        
+                                                        var iniciativasData = localStorage.getItem("iniciativas");
+                                                        var iniciativasContadorPendentes = 0;                                                                                                            
+                                                        if (iniciativasData !== null) {                                                            
+                                                            var iniciativas = JSON.parse(iniciativasData);                                                            
+                                                            for (var i = 0; i < iniciativas.length; i++) {
+                                                                if (iniciativas[i].estado === 'pendente') {
+                                                                    iniciativasContadorPendentes++;
+                                                                }
+                                                            }
+                                                        }                                                                                                            
+                                                        document.getElementById("iniciativasContadorPendentes").textContent = iniciativasContadorPendentes;                                                                                                            
+                                                    </script>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-6 my-1 bdr-cls">
+                                        <div class="total-view">
+                                            <span class="fa-solid fa-circle-check"></span>
+                                            <div class="total-view-text">
+                                                <p class="name-text">
+                                                    Total Iniciativas Aceites
+                                                </p>
+                                                <h6 class="balance-text">
+                                                    <h2 id="iniciativasCountAceita"></h2>
+
+                                                    <script>
+                                                        
+                                                        var iniciativasData = localStorage.getItem("iniciativas");
+                                                        var iniciativasCountAceita = 0;
+
+                                                        if (iniciativasData !== null) {
+                                                            var iniciativas = JSON.parse(iniciativasData);
+                                                            
+                                                            
+                                                            iniciativas.forEach(function(iniciativa) {
+                                                                
+                                                                if (iniciativa.estado === "Aceita") { 
+                                                                    iniciativasCountAceita++;
+                                                                }
+                                                            });
+                                                        }
+
+                                                        document.getElementById("iniciativasCountAceita").textContent = iniciativasCountAceita;                                                                                                    
+                                                    </script>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-6 my-1 bdr-cls">
+                                        <div class="total-view">
+                                            <span class="fa-solid fa-hand-holding-heart"></span>
+                                            <div class="total-view-text">
+                                                <p class="name-text">
+                                                    Total Iniciativas Recusadas
+                                                </p>
+                                                <h6 class="balance-text">
+                                                    <h2 id="iniciativasContadorRecusadas"></h2>
+
+                                                    <script>
+                                                        
+                                                        var iniciativasData = localStorage.getItem("iniciativas");
+                                                        var iniciativasContadorRecusadas = 0;                                                                                                            
+                                                        if (iniciativasData !== null) {                                                            
+                                                            var iniciativas = JSON.parse(iniciativasData);                                                            
+                                                            for (var i = 0; i < iniciativas.length; i++) {
+                                                                if (iniciativas[i].estado === 'Recusada') {
+                                                                    iniciativasContadorRecusadas++;
+                                                                }
+                                                            }
+                                                        }                                                                                                            
+                                                        document.getElementById("iniciativasContadorRecusadas").textContent = iniciativasContadorRecusadas; 
+                                                        </script>          
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
                                     
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-4">
+                        <div class="bg-white top-chart-ear">
+                            <div class="piechart-title">
+                                <p>Iniciativas</p>
+                        </div>
+                        <!------------------GRAFICO PIZZAAAAAA------>
+                        <div class="piechart">
+                            <script>
+                            var iniciativasData = localStorage.getItem("iniciativas");
+                                                        var iniciativasCountAceita = 0;
+
+                                                        if (iniciativasData !== null) {
+                                                            var iniciativas = JSON.parse(iniciativasData);
+                                                            
+                                                            
+                                                            iniciativas.forEach(function(iniciativa) {
+                                                                
+                                                                if (iniciativa.estado === "Aceita") { 
+                                                                    iniciativasCountAceita++;
+                                                                }
+                                                            });
+                                                        }
+
+                                                        document.getElementById("iniciativasCountAceita").textContent = iniciativasCountAceita;    
+                                                        
+                                                        
+                                                        var iniciativasData = localStorage.getItem("iniciativas");
+                                                        var iniciativasContadorPendentes = 0;                                                                                                            
+                                                        if (iniciativasData !== null) {                                                            
+                                                            var iniciativas = JSON.parse(iniciativasData);                                                            
+                                                            for (var i = 0; i < iniciativas.length; i++) {
+                                                                if (iniciativas[i].estado === 'pendente') {
+                                                                    iniciativasContadorPendentes++;
+                                                                }
+                                                            }
+                                                        }                                                                                                            
+                                                        document.getElementById("iniciativasContadorPendentes").textContent = iniciativasContadorPendentes;
+
+                                                        var iniciativasData = localStorage.getItem("iniciativas");
+                                                        var iniciativasContadorRecusadas = 0;                                                                                                            
+                                                        if (iniciativasData !== null) {                                                            
+                                                            var iniciativas = JSON.parse(iniciativasData);                                                            
+                                                            for (var i = 0; i < iniciativas.length; i++) {
+                                                                if (iniciativas[i].estado === 'Recusada') {
+                                                                    iniciativasContadorRecusadas++;
+                                                                }
+                                                            }
+                                                        }                                                                                                            
+                                                        document.getElementById("iniciativasContadorRecusadas").textContent = iniciativasContadorRecusadas;
+                                                </script>    
+                            <div id="chart-2">
+                                <script>
+                                    
+                                                        
+                                                       
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        
+                                        var options = {
+                                            series: [iniciativasContadorPendentes, iniciativasCountAceita, iniciativasContadorRecusadas],
+                                            chart: {
+                                                type: 'donut',
+                                                height: 350
+                                            },
+                                            
+                                            labels: ['Pendentes', 'Aceites', 'Recusadas'],
+                                             dataLabels: {
+                                              enabled: true,
+                                            formatter: function (val, opts) {
+                                            return opts.w.config.series[opts.seriesIndex] ; 
+                                                }
+                                                     },
+                                          tooltip: {
+                                                             y: {
+                                             formatter: function (val) {
+                                        return val; 
+                                                 }
+                                                    }
+                                                 },
+                                                  responsive: [{
+                                                  breakpoint: 480,
+                                                  options: {
+                                                    chart: {
+                                                 width: 200
+                                                 },
+                                                 legend: {
+                                                 position: 'bottom'
+                                                   }
+                                                  }
+                                                      }]
+                                              };
+
+                                                  var chart = new ApexCharts(document.querySelector("#chart-2"), options);
+                                                  chart.render();
+                                                        });
+                                                            </script>
+                            </div>
+                        </div>
+                    </div>
+                  
                 </div>
 
             </div>
